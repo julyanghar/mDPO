@@ -1,5 +1,5 @@
 model_name_or_path: "BAAI/Bunny-v1_0-3B"
-dataset_path: "data/sample_data.json"
+dataset_path: "data/vlfeedback_llava_10k.json"
 output_dir: "./checkpoint/mdpo_bunny"
 beta: 0.1
 bf16: true
@@ -24,3 +24,4 @@ lora_r: 64
 lora_alpha: 128
 lora_target_modules: all-linear
 run_name: mdpo_bunny
+remove_unused_columns: False

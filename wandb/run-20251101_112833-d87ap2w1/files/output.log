@@ -1,0 +1,60 @@
+  0%|                                                                 | 0/882 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/yilin/mDPO/bunny/run_mdpo_bunny.py", line 392, in <module>
+    train(cfg)
+  File "/home/yilin/mDPO/bunny/run_mdpo_bunny.py", line 358, in train
+    trainer.train(resume_from_checkpoint=False)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/accelerate/data_loader.py", line 451, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 674, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = self.dataset.__getitems__(possibly_batched_index)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2866, in __getitems__
+    batch = self.__getitem__(keys)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2862, in __getitem__
+    return self._getitem(key)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2843, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 612, in query_table
+    _check_valid_index_key(key, size)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 562, in _check_valid_index_key
+    _check_valid_index_key(int(max(key)), size=size)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 552, in _check_valid_index_key
+    raise IndexError(f"Invalid key: {key} is out of bounds for size {size}")
+IndexError: Invalid key: 5333 is out of bounds for size 0
+Traceback (most recent call last):
+  File "/home/yilin/mDPO/bunny/run_mdpo_bunny.py", line 392, in <module>
+    train(cfg)
+  File "/home/yilin/mDPO/bunny/run_mdpo_bunny.py", line 358, in train
+    trainer.train(resume_from_checkpoint=False)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/accelerate/data_loader.py", line 451, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 674, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = self.dataset.__getitems__(possibly_batched_index)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2866, in __getitems__
+    batch = self.__getitem__(keys)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2862, in __getitem__
+    return self._getitem(key)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 2843, in _getitem
+    pa_subtable = query_table(self._data, key, indices=self._indices)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 612, in query_table
+    _check_valid_index_key(key, size)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 562, in _check_valid_index_key
+    _check_valid_index_key(int(max(key)), size=size)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 552, in _check_valid_index_key
+    raise IndexError(f"Invalid key: {key} is out of bounds for size {size}")
+IndexError: Invalid key: 5333 is out of bounds for size 0

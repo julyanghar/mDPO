@@ -1,0 +1,11 @@
+{"time":"2025-11-01T11:41:13.310591785-05:00","level":"INFO","msg":"stream: starting","core version":"0.22.0"}
+{"time":"2025-11-01T11:41:13.652303283-05:00","level":"INFO","msg":"stream: created new stream","id":"tb2umkcs"}
+{"time":"2025-11-01T11:41:13.652376903-05:00","level":"INFO","msg":"stream: started","id":"tb2umkcs"}
+{"time":"2025-11-01T11:41:13.652543348-05:00","level":"INFO","msg":"writer: started","stream_id":"tb2umkcs"}
+{"time":"2025-11-01T11:41:13.652686771-05:00","level":"INFO","msg":"handler: started","stream_id":"tb2umkcs"}
+{"time":"2025-11-01T11:41:13.652663114-05:00","level":"INFO","msg":"sender: started","stream_id":"tb2umkcs"}
+{"time":"2025-11-01T11:44:45.663661073-05:00","level":"INFO","msg":"stream: closing","id":"tb2umkcs"}
+{"time":"2025-11-01T11:44:45.93820485-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-01T11:44:46.029314644-05:00","level":"INFO","msg":"handler: closed","stream_id":"tb2umkcs"}
+{"time":"2025-11-01T11:44:46.029480658-05:00","level":"INFO","msg":"sender: closed","stream_id":"tb2umkcs"}
+{"time":"2025-11-01T11:44:46.029508115-05:00","level":"INFO","msg":"stream: closed","id":"tb2umkcs"}

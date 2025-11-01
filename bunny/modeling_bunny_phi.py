@@ -61,7 +61,7 @@ class SigLipImageProcessor:
         return BatchFeature(data=data, tensor_type=return_tensors)
 
 
-from configuration_bunny_phi import SigLipVisionConfig
+from .configuration_bunny_phi import SigLipVisionConfig
 
 
 @dataclass
@@ -862,7 +862,7 @@ from transformers.utils import (
     logging,
     replace_return_docstrings,
 )
-from configuration_bunny_phi import PhiConfig
+from .configuration_bunny_phi import PhiConfig
 
 if is_flash_attn_2_available():
     try:
@@ -2193,7 +2193,7 @@ class PhiForTokenClassification(PhiPreTrainedModel):
         )
 
 
-from configuration_bunny_phi import BunnyPhiConfig
+from .configuration_bunny_phi import BunnyPhiConfig
 
 
 class BunnyPhiModel(BunnyMetaModel, PhiModel):

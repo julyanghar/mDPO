@@ -32,6 +32,9 @@ class mDPOTrainer(DPOTrainer):
                     ),
                     dim=0,
                 ).to(self.accelerator.device)
+        if isinstance(batch["image"], list):
+            # 过滤掉 None，并确保每个元素是 tensor
+            batch["image"] = torch.stack([img for img in batch["image"] if isinstance(img, torch.Tensor)], dim=0)
 
         concatenated_batch["concatenated_image"] = torch.cat(
             (batch["image"], batch["image"]), dim=0

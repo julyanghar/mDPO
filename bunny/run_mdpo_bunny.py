@@ -1,9 +1,14 @@
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
 import argparse
 import json
 import logging
 import os
 from pathlib import Path
 from typing import Any, Dict
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 
 try:
     import yaml

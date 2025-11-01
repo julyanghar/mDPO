@@ -1,0 +1,76 @@
+  0%|                                                                 | 0/882 [00:00<?, ?it/s]/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/yilin/mDPO/bunny/trl/trainer/dpo_trainer.py:496: UserWarning: compute_loss is only implemented for DPODataCollatorWithPadding, and you passed a datacollator that is different than DPODataCollatorWithPadding - you might see unexpected behavior. Alternatively, you can implement your own prediction_step method if you are using a custom data collator
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/debugpy/__main__.py", line 71, in <module>
+    cli.main()
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/debugpy/server/cli.py", line 508, in main
+    run()
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/debugpy/server/cli.py", line 358, in run_file
+    runpy.run_path(target, run_name="__main__")
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 310, in run_path
+    return _run_module_code(code, init_globals, run_name, pkg_name=pkg_name, script_name=fname)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 127, in _run_module_code
+    _run_code(code, mod_globals, init_globals, mod_name, mod_spec, pkg_name, script_name)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 118, in _run_code
+    exec(code, run_globals)
+  File "bunny/run_mdpo_bunny.py", line 392, in <module>
+    train(cfg)
+  File "bunny/run_mdpo_bunny.py", line 358, in train
+    trainer.train(resume_from_checkpoint=False)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/transformers/trainer.py", line 1540, in train
+    return inner_training_loop(
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/transformers/trainer.py", line 1873, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/transformers/trainer.py", line 2776, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/yilin/mDPO/bunny/trl/trainer/dpo_trainer.py", line 500, in compute_loss
+    loss, metrics = self.get_batch_metrics(model, inputs, train_eval="train")
+  File "/home/yilin/mDPO/mdpo_trainer.py", line 164, in get_batch_metrics
+    ) = self.concatenated_forward(model, batch)
+  File "/home/yilin/mDPO/mdpo_trainer.py", line 49, in concatenated_forward
+    concatenated_batch = self.concatenated_inputs(batch)
+  File "/home/yilin/mDPO/mdpo_trainer.py", line 36, in concatenated_inputs
+    concatenated_batch["concatenated_image"] = torch.cat(
+TypeError: expected Tensor as element 0 in argument 0, but got list
+Traceback (most recent call last):
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/debugpy/__main__.py", line 71, in <module>
+    cli.main()
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/debugpy/server/cli.py", line 508, in main
+    run()
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/debugpy/server/cli.py", line 358, in run_file
+    runpy.run_path(target, run_name="__main__")
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 310, in run_path
+    return _run_module_code(code, init_globals, run_name, pkg_name=pkg_name, script_name=fname)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 127, in _run_module_code
+    _run_code(code, mod_globals, init_globals, mod_name, mod_spec, pkg_name, script_name)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 118, in _run_code
+    exec(code, run_globals)
+  File "bunny/run_mdpo_bunny.py", line 392, in <module>
+    train(cfg)
+  File "bunny/run_mdpo_bunny.py", line 358, in train
+    trainer.train(resume_from_checkpoint=False)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/transformers/trainer.py", line 1540, in train
+    return inner_training_loop(
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/transformers/trainer.py", line 1873, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/yilin/anaconda3/envs/re-align/lib/python3.10/site-packages/transformers/trainer.py", line 2776, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/yilin/mDPO/bunny/trl/trainer/dpo_trainer.py", line 500, in compute_loss
+    loss, metrics = self.get_batch_metrics(model, inputs, train_eval="train")
+  File "/home/yilin/mDPO/mdpo_trainer.py", line 164, in get_batch_metrics
+    ) = self.concatenated_forward(model, batch)
+  File "/home/yilin/mDPO/mdpo_trainer.py", line 49, in concatenated_forward
+    concatenated_batch = self.concatenated_inputs(batch)
+  File "/home/yilin/mDPO/mdpo_trainer.py", line 36, in concatenated_inputs
+    concatenated_batch["concatenated_image"] = torch.cat(
+TypeError: expected Tensor as element 0 in argument 0, but got list

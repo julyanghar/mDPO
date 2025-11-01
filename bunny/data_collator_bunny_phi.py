@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Dict, List, Any
 from trl.trainer.utils import DPODataCollatorWithPadding
 from PIL import Image
-
+import os
 from bunny.bunny_utils.util.mm_utils import tokenizer_image_token
 
 
@@ -22,6 +22,7 @@ class mDPODataCollatorBunny(DPODataCollatorWithPadding):
         prompt_tokens = {}
         prompt_tokens["input_ids"] = tokenizer_image_token(prompt, self.tokenizer)
         prompt_tokens["attention_mask"] = [1 for _ in range(len(prompt_tokens["input_ids"]))]
+
 
         eos_token_id = self.tokenizer.eos_token_id
         # Get indices in list prompt_tokens["input_ids"] that equals the EOS token (often 0)
@@ -92,6 +93,7 @@ class mDPODataCollatorBunny(DPODataCollatorWithPadding):
                     continue
                 batch[f"{k}_{type_key}"] = tokens
 
+        img_path = os.path.join("/home/yilin/yilin-DPO/dataset/silkie/merged_images", img_path)
         with Image.open(img_path) as image:
             image = image.convert("RGB")
             image_tensor = self.model.process_images([image], self.model.config)
