@@ -92,23 +92,28 @@ class mDPODataCollatorBunny(DPODataCollatorWithPadding):
                     continue
                 batch[f"{k}_{type_key}"] = tokens
 
-        image = Image.open(img_path)
-        image_tensor = self.model.process_images([image], self.model.config).to(dtype=self.model.dtype)
+        with Image.open(img_path) as image:
+            image = image.convert("RGB")
+            image_tensor = self.model.process_images([image], self.model.config)
+
+        image_tensor = image_tensor.to(dtype=self.model.dtype)
         batch["image"] = image_tensor
 
         return batch
     
     def __call__(self, features: List[Dict[str, Any]]) -> Dict[str, Any]:
-            tokenized_batch = []
+        tokenized_batch = []
 
-            for feature in features:
-                prompt = feature["prompt"]
-                chosen = feature["chosen"]
-                rejected = feature["rejected"]
-                img_path = feature["img_path"]
+        for feature in features:
+            prompt = feature["prompt"]
+            chosen = feature["chosen"]
+            rejected = feature["rejected"]
+            img_path = feature["img_path"]
 
-                batch_element = self.tokenize_batch_element(prompt, chosen, rejected, img_path)
-                tokenized_batch.append(batch_element)
+            batch_element = self.tokenize_batch_element(
+                prompt, chosen, rejected, img_path
+            )
+            tokenized_batch.append(batch_element)
 
-            collated_batch = self.collate(tokenized_batch)
-            return collated_batch
+        collated_batch = self.collate(tokenized_batch)
+        return collated_batch

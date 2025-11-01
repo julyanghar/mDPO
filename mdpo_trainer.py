@@ -1,5 +1,8 @@
 from typing import Dict, List, Union, Tuple, Literal
+
+import torch
 import torch.distributed
+
 from trl.trainer import DPOTrainer
 from trl.trainer.utils import pad_to_length
 
@@ -30,7 +33,9 @@ class mDPOTrainer(DPOTrainer):
                     dim=0,
                 ).to(self.accelerator.device)
 
-        concatenated_batch["concatenated_image"] = batch["image"] + batch["image"]
+        concatenated_batch["concatenated_image"] = torch.cat(
+            (batch["image"], batch["image"]), dim=0
+        )
 
         if self.is_encoder_decoder:
             concatenated_batch["concatenated_input_ids"] = batch["prompt_input_ids"].repeat(2, 1)
@@ -87,7 +92,14 @@ class mDPOTrainer(DPOTrainer):
             average_log_prob=False,
         )
 
-        return (chosen_logps, rejected_logps, imageless_chosen_logps, chosen_logits, rejected_logits, imageless_chosen_logits)
+        return (
+            chosen_logps,
+            rejected_logps,
+            imageless_chosen_logps,
+            chosen_logits,
+            rejected_logits,
+            imageless_chosen_logits,
+        )
 
     def dpo_loss(
         self,
